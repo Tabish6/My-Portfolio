@@ -42,7 +42,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2">
+                    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
                         <i data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
@@ -52,12 +52,13 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-800 border-t border-slate-700">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <button onclick="showPage('home')" class="mobile-link">Home</button>
-                <button onclick="showPage('about')" class="mobile-link">About</button>
-                <button onclick="showPage('experience')" class="mobile-link">Experience</button>
-                <button onclick="showPage('skills')" class="mobile-link">Skills</button>
-                <button onclick="showPage('artifacts')" class="mobile-link">QA Artifacts</button>
-                <button onclick="showPage('contact')" class="mobile-link">Contact</button>
+                <button onclick="showPage('home')" class="mobile-link" id="mobile-nav-home">Home</button>
+                <button onclick="showPage('about')" class="mobile-link" id="mobile-nav-about">About</button>
+                <button onclick="showPage('experience')" class="mobile-link" id="mobile-nav-experience">Experience</button>
+                <button onclick="showPage('skills')" class="mobile-link" id="mobile-nav-skills">Skills</button>
+                <button onclick="showPage('certifications')" class="mobile-link" id="mobile-nav-certifications">Certifications</button>
+                <button onclick="showPage('artifacts')" class="mobile-link" id="mobile-nav-artifacts">QA Artifacts</button>
+                <button onclick="showPage('contact')" class="mobile-link" id="mobile-nav-contact">Contact</button>
             </div>
         </div>
     </nav>
@@ -91,6 +92,7 @@
                         <button onclick="showPage('contact')" class="btn-secondary">
                             Hire Me <i data-lucide="briefcase" class="ml-2 h-5 w-5"></i>
                         </button>
+                        <a href="https://github.com/Tabish6" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="GitHub Profile">GitHub <i data-lucide="github" class="ml-2 h-5 w-5"></i></a>
                     </div>
                 </div>
             </div>
@@ -334,7 +336,7 @@
         <!-- ARTIFACTS PAGE -->
         <section id="artifacts" class="page-section max-w-6xl mx-auto py-12 px-4">
             <h2 class="section-title">QA Resources & Artifacts</h2>
-            <p class="text-slate-600 mb-8">Examples of how I structure my work, from reporting defects to planning tests.</p>
+            <p class="text-slate-700 mb-8">Examples of how I structure my work, from reporting defects to planning tests.</p>
             <div class="flex flex-wrap gap-4 mb-8">
                 <button onclick="showTab('bug')" id="btn-bug" class="tab-btn bg-red-500 text-white shadow-lg">Sample Bug Report</button>
                 <button onclick="showTab('plan')" id="btn-plan" class="tab-btn bg-white text-slate-600 border border-slate-200">Test Plan Strategy</button>
@@ -352,11 +354,11 @@
                         </div>
                         <div class="border-t border-slate-200 pt-3">
                             <p class="font-bold text-slate-700">Summary:</p>
-                            <p class="text-slate-600">Application crashes when user clicks 'Proceed to Pay' with an empty coupon field.</p>
+                            <p class="text-slate-700">Application crashes when user clicks 'Proceed to Pay' with an empty coupon field.</p>
                         </div>
                         <div>
                             <p class="font-bold text-slate-700">Steps to Reproduce:</p>
-                            <ol class="list-decimal ml-5 text-slate-600">
+                            <ol class="list-decimal ml-5 text-slate-700">
                                 <li>Login to application as User.</li>
                                 <li>Add item to cart.</li>
                                 <li>Navigate to Cart page.</li>
@@ -372,17 +374,17 @@
                         <div class="space-y-4">
                             <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                                 <h4 class="font-bold text-slate-800">1. Requirement Analysis</h4>
-                                <p class="text-sm text-slate-600">Reviewing SRS/FRS to identify testable requirements.</p>
+                                <p class="text-sm text-slate-700">Reviewing SRS/FRS to identify testable requirements.</p>
                             </div>
                             <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                                 <h4 class="font-bold text-slate-800">2. Test Planning</h4>
-                                <p class="text-sm text-slate-600">Defining scope, resources, schedule, and tools.</p>
+                                <p class="text-sm text-slate-700">Defining scope, resources, schedule, and tools.</p>
                             </div>
                         </div>
                         <div class="space-y-4">
                             <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                                 <h4 class="font-bold text-slate-800">3. Test Execution</h4>
-                                <p class="text-sm text-slate-600">Running manual/automated tests and logging defects in JIRA.</p>
+                                <p class="text-sm text-slate-700">Running manual/automated tests and logging defects in JIRA.</p>
                             </div>
                         </div>
                     </div>
@@ -414,7 +416,7 @@
                             <div><p class="text-sm text-slate-500">Phone</p><p class="font-medium">+92-319-8622337</p></div>
                         </div>
                     </div>
-                    <a href="https://www.linkedin.com/in/tabish-saeed-697aa3361" target="_blank" class="linkedin-btn">
+                    <a href="https://www.linkedin.com/in/tabish-saeed-697aa3361" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
                         <i data-lucide="linkedin" class="mr-2 h-5 w-5"></i> Visit LinkedIn Profile
                     </a>
                 </div>
@@ -424,17 +426,18 @@
                      Note: The ID "contact-form" is used by script.js to make this work
                 -->
                 <form id="contact-form" class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                    <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
                     <div class="mb-4">
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Name</label>
-                        <input class="form-input" type="text" name="name" placeholder="Your Name" required>
+                        <label for="user-name" class="block text-slate-700 text-sm font-bold mb-2">Name</label>
+                        <input id="user-name" class="form-input" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Email</label>
-                        <input class="form-input" type="email" name="email" placeholder="Your Email" required>
+                        <label for="user-email" class="block text-slate-700 text-sm font-bold mb-2">Email</label>
+                        <input id="user-email" class="form-input" type="email" name="email" placeholder="Your Email" autocomplete="email" required>
                     </div>
                     <div class="mb-6">
-                        <label class="block text-slate-700 text-sm font-bold mb-2">Message</label>
-                        <textarea class="form-input h-32" name="message" placeholder="Hi Tabish..." required></textarea>
+                        <label for="user-message" class="block text-slate-700 text-sm font-bold mb-2">Message</label>
+                        <textarea id="user-message" class="form-input h-32" name="message" placeholder="Hi Tabish..." required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition-colors duration-200">
                         Send Message
@@ -473,7 +476,7 @@
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-blue-400">Connect</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li class="flex items-center"><i data-lucide="linkedin" class="w-4 h-4 mr-2"></i><a href="https://www.linkedin.com/in/tabish-saeed-697aa3361" target="_blank" class="hover:underline">LinkedIn</a></li>
+                        <li class="flex items-center"><i data-lucide="linkedin" class="w-4 h-4 mr-2"></i><a href="https://www.linkedin.com/in/tabish-saeed-697aa3361" target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn</a></li>
                         <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2"></i><a href="mailto:tabishsaeed007@gmail.com" class="hover:underline">tabishsaeed007@gmail.com</a></li>
                         <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2"></i> Islamabad, Pakistan</li>
                     </ul>
@@ -484,6 +487,10 @@
             </div>
         </div>
     </footer>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up" class="h-5 w-5"></i>
+    </button>
 
     <!-- 4. JavaScript File -->
     <script src="script.js"></script>

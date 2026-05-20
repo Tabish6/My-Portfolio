@@ -26,10 +26,24 @@ function showPage(pageId) {
         activeBtn.classList.add('active');
     }
 
+    // Update Navigation Button Styles (Mobile)
+    document.querySelectorAll('.mobile-link').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    const activeMobileBtn = document.getElementById('mobile-nav-' + pageId);
+    if (activeMobileBtn) {
+        activeMobileBtn.classList.add('active');
+    }
+
     // Close mobile menu if it is currently open
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.add('hidden');
+        const menuButton = document.getElementById('mobile-menu-button');
+        if (menuButton) {
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
     }
 
     // Scroll to the top of the page
@@ -40,6 +54,11 @@ function showPage(pageId) {
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
+
+    const menuButton = document.getElementById('mobile-menu-button');
+    if (menuButton) {
+        menuButton.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
+    }
 }
 
 // 3. Artifact Tabs Functionality (QA Artifacts Page)
@@ -73,6 +92,19 @@ function showTab(tabName) {
 
 // 4. Contact Form Logic (Web3Forms)
 document.addEventListener('DOMContentLoaded', () => {
+    showPage('home');
+
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     const form = document.getElementById('contact-form');
     // Only proceed if form exists on the page
     if (form) {
@@ -83,6 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Create form data object
             const formData = new FormData(form);
+            if (formData.get("botcheck")) {
+                form.reset();
+                return;
+            }
+
             // Append your access key (Updated with the key you provided)
             formData.append("access_key", "2640e48b-fd38-4572-9e9d-77c7b195a03a");
 
