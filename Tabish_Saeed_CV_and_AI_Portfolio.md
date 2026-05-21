@@ -37,13 +37,13 @@ Detail-oriented QA Engineer with hands-on experience in manual testing, API test
 
 ### **Junior QA Engineer** | ITecExperts - Peshawar, Pakistan 
 *(July 2025 - March 2026)*
-* Logged and tracked 200+ defects using JIRA.
-* Performed manual testing across 8+ applications in multiple business domains.
+* Logged and tracked 250+ defects using JIRA.
+* Performed manual testing across 10+ applications in multiple business domains.
 * Conducted API testing using Postman and basic performance testing using JMeter.
 * Performed UI/UX testing against Figma designs across multiple devices and browsers.
 * Created Selenium WebDriver scripts for login, signup, and regression test flows using Python.
 * **AI Testing:** Tested AI chatbot systems for conversational accuracy, intent recognition, and response consistency.
-* Executed 250+ test cases covering authentication, dashboards, payments, admin panels, and user workflows.
+* Designed and executed 600+ test cases covering authentication, dashboards, payments, admin panels, and user workflows.
 
 ## 🛠️ Technical Skills
 
