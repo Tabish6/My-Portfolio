@@ -260,6 +260,33 @@
     border-color: #3b82f6;
 }
 
+.ai-expertise {
+    background: linear-gradient(135deg, #0f172a 0%, #115e59 55%, #581c87 100%);
+    border: 1px solid rgba(20, 184, 166, 0.35);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
+}
+
+.ai-skill-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: white;
+}
+
+.ai-skill-card h4 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.ai-skill-card p {
+    color: #ccfbf1;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
 .back-to-top {
     position: fixed;
     right: 1.25rem;
